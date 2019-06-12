@@ -1,0 +1,7 @@
+package com.xiaodai;
+
+import java.awt.Frame.JFrame;
+
+public class MyMainFrame extends JFrame {
+
+}

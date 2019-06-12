@@ -1,0 +1,19 @@
+package com.xiaodai;
+
+import javax.swing.*;
+
+public class MyGui {
+	public static void main(String[] args) {
+		
+		JFrame frame = new JFrame("商品日期管理软件");
+		JButton button = new JButton("my first button");
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		frame.getContentPane().add(button);
+		
+		frame.setSize(600, 300);
+		
+		frame.setVisible(true);
+	}
+}

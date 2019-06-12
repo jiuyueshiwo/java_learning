@@ -1,0 +1,27 @@
+package com.xiaodai;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class MyGui {
+	public static void main(String[] args) {
+		
+		JFrame frame = new JFrame("小呆商品日期管理软件");
+		JPanel panel =new JPanel();
+		panel.setBackground(Color.WHITE);
+		
+		JButton addinfo = new JButton("添加");
+		JButton queryinfo = new JButton("查询");
+		
+		frame.getContentPane().add(panel);
+		
+		panel.add(addinfo);
+		panel.add(queryinfo);
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		frame.setSize(600, 600);
+		
+		frame.setVisible(true);
+	}
+}

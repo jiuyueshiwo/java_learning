@@ -1,0 +1,72 @@
+package com.xiaodai;
+
+import java.awt.*;
+import java.time.LocalDate;
+
+import javax.swing.*;
+
+public class MyGui {
+		
+	JFrame frame = new JFrame("小呆商品日期管理软件");
+	JPanel paneleast =new JPanel();
+	JPanel panelwest =new JPanel();	
+	public String[] titles = {"条形码	","商品名称","生产日期","保质期"};
+				
+	public static void main(String[] args) {
+		new MyGui().buildGUI();
+		
+	}
+	public void buildGUI() {
+		
+		Food food01 =new Food(LocalDate.now(), 180);
+		System.out.println(LocalDate.now());
+		
+		paneleast.setBackground(Color.green);
+		paneleast.setLayout(new BorderLayout());
+		panelwest.setBackground(Color.white);
+		
+		JTextArea displayinfo = new JTextArea(15,30);
+		displayinfo.setLineWrap(true);
+		
+		JScrollPane scroller = new JScrollPane(displayinfo);
+		scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER );
+		
+		panelwest.add(scroller);
+		
+		Box titleBox = new Box(BoxLayout.Y_AXIS);
+		for (int i = 0; i < 4; i++)
+		{
+			titleBox.add(new Label(titles[i]));
+		}
+		
+		JTextField codenum = new JTextField(10);
+		JTextField goodname = new JTextField(10);
+		JTextField birthday = new JTextField(10);
+		JTextField keeptime = new JTextField(10);
+		
+		Box textBox = new Box(BoxLayout.Y_AXIS);
+		textBox.add(codenum);
+		textBox.add(goodname);
+		textBox.add(birthday);
+		textBox.add(keeptime);
+		
+		paneleast.add(BorderLayout.WEST,titleBox);
+		paneleast.add(BorderLayout.EAST,textBox);
+		
+		JButton addinfo = new JButton("添加");
+		JButton queryinfo = new JButton("查询");
+		
+		frame.getContentPane().add(BorderLayout.EAST,paneleast);
+		frame.getContentPane().add(BorderLayout.WEST,panelwest);
+		
+		paneleast.add(BorderLayout.SOUTH,addinfo);
+		paneleast.add(BorderLayout.SOUTH,queryinfo);
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		frame.setSize(550, 400);
+		
+		frame.setVisible(true);
+	}
+}

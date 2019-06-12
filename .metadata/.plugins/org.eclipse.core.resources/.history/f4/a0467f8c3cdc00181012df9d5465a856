@@ -1,0 +1,15 @@
+package com.xiaodai;
+
+import java.time.*;
+
+public class Food {
+	private LocalDate startdate;
+	private LocalDate enddate;
+	private int expirydate; 
+    public Food(LocalDate date, int period) {
+    	startdate = date;
+    	expirydate = period;
+    	enddate =startdate.plusDays(expirydate);
+		
+	}
+}
